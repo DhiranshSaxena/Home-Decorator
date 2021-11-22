@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage>{
                      duration: Duration(milliseconds: 500),
                        top: dashboard ? 160 : 250,
                        child: Container(
-                         height: MediaQuery.of(context).size.height,
+                         height: MediaQuery.of(context).size.height-80,
                          width: MediaQuery.of(context).size.width,
                          decoration: BoxDecoration(
                              color: Colors.white,
@@ -171,114 +171,14 @@ class _HomePageState extends State<HomePage>{
                              )
                          ),
                          child: Stack(
+                           fit: StackFit.expand,
                            children: [
-                             Positioned(
-                               top: 20,
-                               child: AnimatedOpacity(
-                                 duration: Duration(milliseconds: 500),
-                                 opacity: visible ? 1.0 : 0.0,
-                                 child: Column(
-                                   children: [
-                                     Row(
-                                       children: [
-                                         SizedBox(
-                                           width: 30,
-                                         ),
-                                         Text("All Rooms",
-                                           style: TextStyle(
-                                             color: Color(0xff1556bf),
-                                             fontWeight: FontWeight.bold,
-                                             fontSize: 24
-                                           ),
-                                         ),
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             ),
-                             Positioned(
-                               top: 135,
-                               child: AnimatedOpacity(
-                                 duration: Duration(milliseconds: 500),
-                                 opacity: visible ? 0.0 : 1.0,
-                                 child: Column(
-                                   children: [
-                                     Row(
-                                       children: [
-                                         SizedBox(
-                                           width: 30,
-                                         ),
-                                         Text("Colors",
-                                           style: TextStyle(
-                                               color: Color(0xff1556bf),
-                                               fontWeight: FontWeight.bold,
-                                               fontSize: 24
-                                           ),
-                                         ),
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             ),
-                             Positioned(
-                               top: 250,
-                               child: AnimatedOpacity(
-                                 duration: Duration(milliseconds: 500),
-                                 opacity: visible ? 0.0 : 1.0,
-                                 child: Column(
-                                   children: [
-                                     Row(
-                                       children: [
-                                         SizedBox(
-                                           width: 30,
-                                         ),
-                                         Text("Scenes",
-                                           style: TextStyle(
-                                               color: Color(0xff1556bf),
-                                               fontWeight: FontWeight.bold,
-                                               fontSize: 24
-                                           ),
-                                         ),
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             ),
-                             Positioned(
-                               top: 20,
-                               child: AnimatedOpacity(
-                                 duration: Duration(milliseconds: 500),
-                                 opacity: visible ? 0.0 : 1.0,
-                                 child: Column(
-                                   children: [
-                                     Row(
-                                       children: [
-                                         SizedBox(
-                                           width: 30,
-                                         ),
-                                         Text("Intensity",
-                                           style: TextStyle(
-                                               color: Color(0xff1556bf),
-                                               fontWeight: FontWeight.bold,
-                                               fontSize: 24
-                                           ),
-                                         ),
-                                       ],
-                                     ),
-                                   ],
-                                 ),
-                               ),
-                             ),
                              Padding(
                                padding:const EdgeInsets.only(top:40.0),
                                child: AnimatedOpacity(
                                  duration: Duration(milliseconds: 500),
                                  opacity: visible ? 1.0 : 0.0,
-                                 child: Expanded(
-                                   child: GridView.count(
+                                 child: GridView.count(
                                      crossAxisCount: 2,
                                      childAspectRatio: 1,
                                      crossAxisSpacing: 30,
@@ -301,72 +201,72 @@ class _HomePageState extends State<HomePage>{
                                          child: ClipRRect(
                                            borderRadius: BorderRadius.circular(25),
                                            child: Container(
-                                               // padding: EdgeInsets.all(20),
-                                               decoration: BoxDecoration(
-                                                 color: Colors.white,
-                                                 borderRadius: BorderRadius.circular(25),
-                                                 boxShadow: [
-                                                   BoxShadow(
-                                                     color: Colors.black87,
-                                                     spreadRadius: 5,
-                                                     blurRadius: 7,
-                                                     offset: Offset(0, 15.5), // changes position of shadow
-                                                   ),
-                                                 ],
-                                               ),
-                                               child: Material(
-                                                 color: Colors.transparent,
-                                                 child: InkWell(
-                                                   onTap: (){
-                                                     setState(() {
-                                                       dashboard = false;
-                                                       visible = false;
-                                                     });
-                                                   },
-                                                     child: Row(
-                                                       children: [
+                                             // padding: EdgeInsets.all(20),
+                                             decoration: BoxDecoration(
+                                               color: Colors.white,
+                                               borderRadius: BorderRadius.circular(25),
+                                               boxShadow: [
+                                                 BoxShadow(
+                                                   color: Colors.black87,
+                                                   spreadRadius: 5,
+                                                   blurRadius: 7,
+                                                   offset: Offset(0, 15.5), // changes position of shadow
+                                                 ),
+                                               ],
+                                             ),
+                                             child: Material(
+                                               color: Colors.transparent,
+                                               child: InkWell(
+                                                 onTap: (){
+                                                   setState(() {
+                                                     dashboard = false;
+                                                     visible = false;
+                                                   });
+                                                 },
+                                                 child: Row(
+                                                   children: [
+                                                     SizedBox(
+                                                       width: 20,
+                                                     ),
+                                                     Column(
+                                                       crossAxisAlignment: CrossAxisAlignment.start,
+                                                       children: <Widget>[
                                                          SizedBox(
-                                                           width: 20,
+                                                           height: 15,
                                                          ),
-                                                         Column(
-                                                           crossAxisAlignment: CrossAxisAlignment.start,
-                                                           children: <Widget>[
-                                                             SizedBox(
-                                                               height: 15,
-                                                             ),
-                                                             SvgPicture.asset("assets/images/grid1.svg", height: 55,width: 55,),
-                                                             SizedBox(
-                                                               height: 20,
-                                                             ),
-                                                             Text(
-                                                               "Bed Room",
-                                                               textAlign: TextAlign.left,
-                                                               style: TextStyle(
-                                                                 fontSize: 20,
-                                                                 fontWeight: FontWeight.bold,
-                                                                 color: Colors.black87
-                                                               ),
-                                                             ),
-                                                             Text(
-                                                               "4 Lights",
-                                                               textAlign: TextAlign.left,
-                                                               style: TextStyle(
-                                                                   fontSize: 18,
-                                                                   fontWeight: FontWeight.bold,
-                                                                   color: Colors.deepOrangeAccent
-                                                               ),
-                                                             ),
-                                                             SizedBox(
-                                                               height: 10,
-                                                             ),
-                                                           ],
+                                                         SvgPicture.asset("assets/images/grid1.svg", height: 55,width: 55,),
+                                                         SizedBox(
+                                                           height: 20,
+                                                         ),
+                                                         Text(
+                                                           "Bed Room",
+                                                           textAlign: TextAlign.left,
+                                                           style: TextStyle(
+                                                               fontSize: 20,
+                                                               fontWeight: FontWeight.bold,
+                                                               color: Colors.black87
+                                                           ),
+                                                         ),
+                                                         Text(
+                                                           "4 Lights",
+                                                           textAlign: TextAlign.left,
+                                                           style: TextStyle(
+                                                               fontSize: 18,
+                                                               fontWeight: FontWeight.bold,
+                                                               color: Colors.deepOrangeAccent
+                                                           ),
+                                                         ),
+                                                         SizedBox(
+                                                           height: 10,
                                                          ),
                                                        ],
                                                      ),
-
+                                                   ],
                                                  ),
+
                                                ),
                                              ),
+                                           ),
 
                                          ),
                                        ),
@@ -752,6 +652,106 @@ class _HomePageState extends State<HomePage>{
                                        ),
                                      ],
                                    ),
+
+                               ),
+                             ),
+                             Positioned(
+                               top: 20,
+                               child: AnimatedOpacity(
+                                 duration: Duration(milliseconds: 500),
+                                 opacity: visible ? 1.0 : 0.0,
+                                 child: Column(
+                                   children: [
+                                     Row(
+                                       children: [
+                                         SizedBox(
+                                           width: 30,
+                                         ),
+                                         Text("All Rooms",
+                                           style: TextStyle(
+                                             color: Color(0xff1556bf),
+                                             fontWeight: FontWeight.bold,
+                                             fontSize: 24
+                                           ),
+                                         ),
+                                       ],
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                             ),
+                             Positioned(
+                               top: 135,
+                               child: AnimatedOpacity(
+                                 duration: Duration(milliseconds: 500),
+                                 opacity: visible ? 0.0 : 1.0,
+                                 child: Column(
+                                   children: [
+                                     Row(
+                                       children: [
+                                         SizedBox(
+                                           width: 30,
+                                         ),
+                                         Text("Colors",
+                                           style: TextStyle(
+                                               color: Color(0xff1556bf),
+                                               fontWeight: FontWeight.bold,
+                                               fontSize: 24
+                                           ),
+                                         ),
+                                       ],
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                             ),
+                             Positioned(
+                               top: 250,
+                               child: AnimatedOpacity(
+                                 duration: Duration(milliseconds: 500),
+                                 opacity: visible ? 0.0 : 1.0,
+                                 child: Column(
+                                   children: [
+                                     Row(
+                                       children: [
+                                         SizedBox(
+                                           width: 30,
+                                         ),
+                                         Text("Scenes",
+                                           style: TextStyle(
+                                               color: Color(0xff1556bf),
+                                               fontWeight: FontWeight.bold,
+                                               fontSize: 24
+                                           ),
+                                         ),
+                                       ],
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                             ),
+                             Positioned(
+                               top: 20,
+                               child: AnimatedOpacity(
+                                 duration: Duration(milliseconds: 500),
+                                 opacity: visible ? 0.0 : 1.0,
+                                 child: Column(
+                                   children: [
+                                     Row(
+                                       children: [
+                                         SizedBox(
+                                           width: 30,
+                                         ),
+                                         Text("Intensity",
+                                           style: TextStyle(
+                                               color: Color(0xff1556bf),
+                                               fontWeight: FontWeight.bold,
+                                               fontSize: 24
+                                           ),
+                                         ),
+                                       ],
+                                     ),
+                                   ],
                                  ),
                                ),
                              ),
@@ -912,80 +912,80 @@ class _HomePageState extends State<HomePage>{
                                child: AnimatedOpacity(
                                  duration: Duration(milliseconds: 500),
                                  opacity: visible ? 0.0 : 1.0,
-                                 child: Row(
-                                   mainAxisAlignment: MainAxisAlignment.center,
-                                   children: [
-                                     SizedBox(
-                                       width: 20,
-                                     ),
-                                     DecoratedBox(
-                                       decoration: BoxDecoration(
-                                         gradient: LinearGradient(
-                                             colors: [
-                                               Colors.redAccent,
-                                               Colors.deepOrangeAccent
-                                             ]
-                                         ),
-                                         borderRadius: BorderRadius.circular(15),
-
-                                       ),
-                                       child: Container(
-                                         width: 180,
-                                         height: 60,
-                                         child: ElevatedButton(
-                                           child: Row(
-                                             mainAxisAlignment: MainAxisAlignment.center,
-                                             children: [
-
-                                               SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
-                                               SizedBox(
-                                                 width: 10,
-                                               ),
-                                               Text("Birthday", style: TextStyle(color: Colors.white, fontSize: 18),)
-                                             ],
+                                 child: Container(
+                                   width: MediaQuery.of(context).size.width,
+                                   child: Row(
+                                     mainAxisAlignment: MainAxisAlignment.center,
+                                     children: [
+                                       DecoratedBox(
+                                         decoration: BoxDecoration(
+                                           gradient: LinearGradient(
+                                               colors: [
+                                                 Colors.redAccent,
+                                                 Colors.deepOrangeAccent
+                                               ]
                                            ),
-                                           style: ButtonStyle(
-                                             backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-                                           ),
-                                         ),
-                                       ),
-                                     ),
-                                     SizedBox(
-                                       width: 15,
-                                     ),
-                                     DecoratedBox(
-                                       decoration: BoxDecoration(
-                                         gradient: LinearGradient(
-                                             colors: [
-                                               Colors.deepPurple,
-                                               Colors.deepPurpleAccent
-                                             ]
-                                         ),
-                                         borderRadius: BorderRadius.circular(15),
+                                           borderRadius: BorderRadius.circular(15),
 
-                                       ),
-                                       child: Container(
-                                         width: 180,
-                                         height: 60,
-                                         child: ElevatedButton(
-                                           child: Row(
-                                             mainAxisAlignment: MainAxisAlignment.center,
-                                             children: [
+                                         ),
+                                         child: Container(
+                                           width: 180,
+                                           height: 60,
+                                           child: ElevatedButton(
+                                             child: Row(
+                                               mainAxisAlignment: MainAxisAlignment.center,
+                                               children: [
 
-                                               SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
-                                               SizedBox(
-                                                 width: 10,
-                                               ),
-                                               Text("Party", style: TextStyle(color: Colors.white, fontSize: 18),)
-                                             ],
-                                           ),
-                                           style: ButtonStyle(
-                                             backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                                                 SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
+                                                 SizedBox(
+                                                   width: 10,
+                                                 ),
+                                                 Text("Birthday", style: TextStyle(color: Colors.white, fontSize: 18),)
+                                               ],
+                                             ),
+                                             style: ButtonStyle(
+                                               backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                                             ),
                                            ),
                                          ),
                                        ),
-                                     ),
-                                   ],
+                                       SizedBox(
+                                         width: 15,
+                                       ),
+                                       DecoratedBox(
+                                         decoration: BoxDecoration(
+                                           gradient: LinearGradient(
+                                               colors: [
+                                                 Colors.deepPurple,
+                                                 Colors.deepPurpleAccent
+                                               ]
+                                           ),
+                                           borderRadius: BorderRadius.circular(15),
+
+                                         ),
+                                         child: Container(
+                                           width: 180,
+                                           height: 60,
+                                           child: ElevatedButton(
+                                             child: Row(
+                                               mainAxisAlignment: MainAxisAlignment.center,
+                                               children: [
+
+                                                 SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
+                                                 SizedBox(
+                                                   width: 10,
+                                                 ),
+                                                 Text("Party", style: TextStyle(color: Colors.white, fontSize: 18),)
+                                               ],
+                                             ),
+                                             style: ButtonStyle(
+                                               backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                                             ),
+                                           ),
+                                         ),
+                                       ),
+                                     ],
+                                   ),
                                  ),
                                ),
                              ),
@@ -994,79 +994,80 @@ class _HomePageState extends State<HomePage>{
                                child: AnimatedOpacity(
                                  duration: Duration(milliseconds: 500),
                                  opacity: visible ? 0.0 : 1.0,
-                                 child: Row(
-                                   children: [
-                                     SizedBox(
-                                       width: 20,
-                                     ),
-                                     DecoratedBox(
-                                       decoration: BoxDecoration(
-                                         gradient: LinearGradient(
-                                             colors: [
-                                               Colors.lightBlue,
-                                               Colors.lightBlueAccent
-                                             ]
-                                         ),
-                                         borderRadius: BorderRadius.circular(15),
-
-                                       ),
-                                       child: Container(
-                                         width: 180,
-                                         height: 60,
-                                         child: ElevatedButton(
-                                           child: Row(
-                                             mainAxisAlignment: MainAxisAlignment.center,
-                                             children: [
-
-                                               SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
-                                               SizedBox(
-                                                 width: 10,
-                                               ),
-                                               Text("Relax", style: TextStyle(color: Colors.white, fontSize: 18),)
-                                             ],
+                                 child: Container(
+                                   width: MediaQuery.of(context).size.width,
+                                   child: Row(
+                                     mainAxisAlignment: MainAxisAlignment.center,
+                                     children: [
+                                       DecoratedBox(
+                                         decoration: BoxDecoration(
+                                           gradient: LinearGradient(
+                                               colors: [
+                                                 Colors.lightBlue,
+                                                 Colors.lightBlueAccent
+                                               ]
                                            ),
-                                           style: ButtonStyle(
-                                             backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-                                           ),
-                                         ),
-                                       ),
-                                     ),
-                                     SizedBox(
-                                       width: 15,
-                                     ),
-                                     DecoratedBox(
-                                       decoration: BoxDecoration(
-                                         gradient: LinearGradient(
-                                             colors: [
-                                               Colors.lightGreen,
-                                               Colors.lightGreenAccent
-                                             ]
-                                         ),
-                                         borderRadius: BorderRadius.circular(15),
+                                           borderRadius: BorderRadius.circular(15),
 
-                                       ),
-                                       child: Container(
-                                         width: 180,
-                                         height: 60,
-                                         child: ElevatedButton(
-                                           child: Row(
-                                             mainAxisAlignment: MainAxisAlignment.center,
-                                             children: [
+                                         ),
+                                         child: Container(
+                                           width: 180,
+                                           height: 60,
+                                           child: ElevatedButton(
+                                             child: Row(
+                                               mainAxisAlignment: MainAxisAlignment.center,
+                                               children: [
 
-                                               SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
-                                               SizedBox(
-                                                 width: 10,
-                                               ),
-                                               Text("Fun", style: TextStyle(color: Colors.white, fontSize: 18),)
-                                             ],
-                                           ),
-                                           style: ButtonStyle(
-                                             backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                                                 SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
+                                                 SizedBox(
+                                                   width: 10,
+                                                 ),
+                                                 Text("Relax", style: TextStyle(color: Colors.white, fontSize: 18),)
+                                               ],
+                                             ),
+                                             style: ButtonStyle(
+                                               backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                                             ),
                                            ),
                                          ),
                                        ),
-                                     ),
-                                   ],
+                                       SizedBox(
+                                         width: 15,
+                                       ),
+                                       DecoratedBox(
+                                         decoration: BoxDecoration(
+                                           gradient: LinearGradient(
+                                               colors: [
+                                                 Colors.lightGreen,
+                                                 Colors.lightGreenAccent
+                                               ]
+                                           ),
+                                           borderRadius: BorderRadius.circular(15),
+
+                                         ),
+                                         child: Container(
+                                           width: 180,
+                                           height: 60,
+                                           child: ElevatedButton(
+                                             child: Row(
+                                               mainAxisAlignment: MainAxisAlignment.center,
+                                               children: [
+
+                                                 SvgPicture.asset("assets/images/list1.svg", color: Colors.white, height: 25, width: 25,),
+                                                 SizedBox(
+                                                   width: 10,
+                                                 ),
+                                                 Text("Fun", style: TextStyle(color: Colors.white, fontSize: 18),)
+                                               ],
+                                             ),
+                                             style: ButtonStyle(
+                                               backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                                             ),
+                                           ),
+                                         ),
+                                       ),
+                                     ],
+                                   ),
                                  ),
                                ),
                              ),
@@ -1195,7 +1196,7 @@ class _HomePageState extends State<HomePage>{
                              child: Column(
                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                children: <Widget>[
-                                 SvgPicture.asset("assets/images/Icon2.svg", height: 30, width: 30,),
+                                 SvgPicture.asset("assets/images/Icon1.svg", height: 30, width: 30,),
                                ],
                              ),
                            ),
@@ -1204,7 +1205,7 @@ class _HomePageState extends State<HomePage>{
                              child: Column(
                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                children: <Widget>[
-                                 SvgPicture.asset("assets/images/Icon1.svg", height: 30, width: 30,),
+                                 SvgPicture.asset("assets/images/Icon2.svg", height: 30, width: 30,),
                                ],
                              ),
                            ),
